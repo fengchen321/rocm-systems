@@ -1,5 +1,7 @@
 # ROCprofiler-SDK 架构概览
 
+> 验证记录：2026-06-03 使用 codegraph 查询 `rocprofiler_create_context`、`rocprofiler_create_buffer`、`rocprofiler_configure_callback_tracing_service`、`rocprofiler_configure_buffer_tracing_service`，并核对 `projects/rocprofiler-sdk/source/lib/rocprofiler-sdk/` 目录结构。 <!-- verified: 2026-06-03 -->
+
 ## 整体架构分层图
 
 ```

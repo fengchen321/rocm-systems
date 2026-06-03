@@ -4,11 +4,18 @@
 
 rocprofv3 是 rocprofiler-sdk 的主要命令行性能分析工具，用于对 AMD GPU 应用程序进行追踪（tracing）和性能计数器（PMC）采集。它是一个 Python 脚本，通过设置环境变量和 LD_PRELOAD 机制将 `librocprofiler-sdk-tool.so` 和 `librocprofiler-sdk.so` 注入到目标应用程序中，从而在运行时拦截 HIP、HSA、KFD 等 API 调用并收集性能数据。rocprofv3 支持多种输出格式（rocpd/SQLite、csv、json、pftrace、otf2），支持 MPI 多进程环境、进程附加（attach）模式、PC 采样、高级线程追踪（ATT）以及多遍（multi-pass）计数器采集。
 
+## 阅读入口
+
+- 只想了解 CLI 脚本职责、关键函数和公共数据流，继续读本页。
+- 想按某个 `rocprofv3` 选项追到环境变量、C++ config 字段和 SDK service，读 [rocprofv3 指令触发流程](rocprofv3-flows.md)。
+- 想看底层模块内部实现，跳到 [HSA 拦截器](../interceptors/hsa.md)、[硬件计数器](../core/counters.md)、[PC 采样](../core/pc-sampling.md)、[AQLProfile](../companion/aqlprofile.md) 或 [输出格式化器](../companion/output.md)。
+
 ## 关键文件
 
 | 文件 | 路径 | 职责 |
 |------|------|------|
 | rocprofv3.py | source/bin/rocprofv3.py | 主 CLI 脚本（约 2262 行），包含命令行解析、环境配置、应用启动逻辑 |
+| rocprofv3-flows.md | wiki/rocprofiler-sdk/modules/tools/rocprofv3-flows.md | 按 CLI 指令整理的触发流程、环境变量映射和 C++ 服务配置链路 |
 | rocpd.py | source/bin/rocpd.py | rocpd CLI 启动脚本，通过 `python3 -m` 调用 rocpd 模块 |
 | rocprofv3-avail.py | source/bin/rocprofv3-avail.py | 可用计数器和 PC 采样配置查询工具 |
 | rocprof-attach.py | source/bin/rocprof-attach.py | 进程附加模式的启动脚本 |
@@ -128,7 +135,7 @@ rocprofv3 是 rocprofiler-sdk 的主要命令行性能分析工具，用于对 A
 ### 上游（谁调用了本模块）
 - **用户命令行**: `rocprofv3 [options] -- <application>` 直接调用
 - **MPI 启动器**: `mpirun -n N rocprofv3 ...` 或 `srun rocprofv3 ...` 通过作业调度器调用
-- **rocprofv3_main** (tool.cpp:3756): C++ 端的主入口，由 `LD_PRELOAD` 注入后在目标进程内执行
+- **动态链接器 / glibc 启动入口**: `LD_PRELOAD` 注入 `librocprofiler-sdk-tool.so` 后，工具库的 `__libc_start_main` 包装函数进入 `rocprofv3_libc_start_main`，再把目标程序入口替换为 `rocprofv3_main`
 
 ### 下游（本模块调用了谁）
 - **rocprofv3-avail** (rocprofv3-avail.py): 当 `--list-avail` 时调用，查询可用计数器和 PC 采样配置
@@ -164,8 +171,16 @@ os.execvpe() 启动目标应用
     |
     v
 目标进程内（通过 LD_PRELOAD）:
+    librocprofiler-sdk.so::rocprofiler_sdk_shlib_ctor()
+        |-- registration::initialize()
+        |-- 查找 ROCP_TOOL_LIBRARIES 中的 rocprofiler_configure()
+        |-- 调用 tool_init()
+    librocprofiler-sdk-tool.so::__libc_start_main()
+        |-- rocprofv3_libc_start_main()
+        |-- 保存真实应用 main
+        |-- 用 rocprofv3_main 包装真实 main
     librocprofiler-sdk-tool.so::rocprofv3_main()
-        |-- 初始化 rocprofiler-sdk
+        |-- 确认/补齐 rocprofiler-sdk 初始化
         |-- 注册回调/缓冲区处理追踪事件
         |-- 收集 HIP/HSA/KFD/ROCTx API 调用数据
         |-- 收集内核调度、内存拷贝等事件
@@ -181,6 +196,8 @@ os.execvpe() 启动目标应用
         - pftrace (Perfetto) 格式
         - otf2 格式
 ```
+
+各 CLI 指令如何展开成环境变量、C++ config 字段和 SDK service，见 [rocprofv3 指令触发流程](rocprofv3-flows.md)。
 
 <!-- verified: 2026-05-27 -->
 
@@ -202,16 +219,16 @@ os.execvpe() 启动目标应用
 
 | 文档 | 路径 | 说明 |
 |------|------|------|
-| 使用 rocprofv3 | source/docs/how-to/using-rocprofv3.rst | rocprofv3 基本使用指南 |
-| rocprofv3 CLI 选项 | source/docs/quick-reference/rocprofv3-cli-options.rst | CLI 选项快速参考 |
-| 高级 rocprofv3 选项 | source/docs/how-to/advanced-rocprofv3-options.rst | 高级选项详细说明 |
-| I/O 选项 | source/docs/how-to/rocprofv3-io-options.rst | 输入输出选项说明 |
-| MPI 使用 | source/docs/how-to/using-rocprofv3-with-mpi.rst | MPI 环境使用指南 |
-| 进程附加 | source/docs/how-to/using-rocprofv3-process-attachment.rst | 进程附加模式说明 |
-| OpenMP 使用 | source/docs/how-to/using-rocprofv3-with-openmp.rst | OpenMP 环境使用指南 |
-| 线程追踪 | source/docs/how-to/using-thread-trace.rst | ATT 线程追踪使用指南 |
-| PC 采样 | source/docs/how-to/using-pc-sampling.rst | PC 采样使用指南 |
-| 内核命名与过滤 | source/docs/how-to/kernel-naming-filtering.rst | 内核命名和过滤选项说明 |
-| rocprofv3-avail | source/docs/how-to/using-rocprofv3-avail.rst | 可用计数器查询工具说明 |
-| rocpd 输出格式 | source/docs/how-to/using-rocpd-output-format.rst | rocpd 输出格式说明 |
-| 与旧版工具对比 | source/docs/conceptual/comparing-with-legacy-tools.rst | 与 rocprof v1/v2 的对比 |
+| 使用 rocprofv3 | [using-rocprofv3.rst](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-rocprofv3.rst) | rocprofv3 基本使用指南 |
+| rocprofv3 CLI 选项 | [rocprofv3-cli-options.rst](../../../../projects/rocprofiler-sdk/source/docs/quick-reference/rocprofv3-cli-options.rst) | CLI 选项快速参考 |
+| 高级 rocprofv3 选项 | [advanced-rocprofv3-options.rst](../../../../projects/rocprofiler-sdk/source/docs/how-to/advanced-rocprofv3-options.rst) | 高级选项详细说明 |
+| I/O 选项 | [rocprofv3-io-options.rst](../../../../projects/rocprofiler-sdk/source/docs/how-to/rocprofv3-io-options.rst) | 输入输出选项说明 |
+| MPI 使用 | [using-rocprofv3-with-mpi.rst](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-rocprofv3-with-mpi.rst) | MPI 环境使用指南 |
+| 进程附加 | [using-rocprofv3-process-attachment.rst](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-rocprofv3-process-attachment.rst) | 进程附加模式说明 |
+| OpenMP 使用 | [using-rocprofv3-with-openmp.rst](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-rocprofv3-with-openmp.rst) | OpenMP 环境使用指南 |
+| 线程追踪 | [using-thread-trace.rst](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-thread-trace.rst) | ATT 线程追踪使用指南 |
+| PC 采样 | [using-pc-sampling.rst](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-pc-sampling.rst) | PC 采样使用指南 |
+| 内核命名与过滤 | [kernel-naming-filtering.rst](../../../../projects/rocprofiler-sdk/source/docs/how-to/kernel-naming-filtering.rst) | 内核命名和过滤选项说明 |
+| rocprofv3-avail | [using-rocprofv3-avail.rst](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-rocprofv3-avail.rst) | 可用计数器查询工具说明 |
+| rocpd 输出格式 | [using-rocpd-output-format.rst](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-rocpd-output-format.rst) | rocpd 输出格式说明 |
+| 与旧版工具对比 | [comparing-with-legacy-tools.rst](../../../../projects/rocprofiler-sdk/source/docs/conceptual/comparing-with-legacy-tools.rst) | 与 rocprof v1/v2 的对比 |

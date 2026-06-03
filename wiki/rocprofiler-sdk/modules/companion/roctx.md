@@ -107,6 +107,6 @@ ROCTx 模块 (`source/lib/rocprofiler-sdk-roctx/`) 是 rocprofiler-sdk 的用户
 
 ## 与官方文档的关系
 
-- [使用 ROCTx](source/docs/how-to/using-rocprofiler-sdk-roctx.rst) - ROCTx 的完整使用指南，包括标记、范围、API 列表和示例代码
-- [使用 rocprofv3](source/docs/how-to/using-rocprofv3.rst) - rocprofv3 工具的使用指南，包含标记追踪功能
-- [rocprofv3 I/O 控制选项](source/docs/how-to/rocprofv3-io-options.rst) - 输出格式和路径配置选项
+- [使用 ROCTx](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-rocprofiler-sdk-roctx.rst) - ROCTx 的完整使用指南，包括标记、范围、API 列表和示例代码
+- [使用 rocprofv3](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-rocprofv3.rst) - rocprofv3 工具的使用指南，包含标记追踪功能
+- [rocprofv3 I/O 控制选项](../../../../projects/rocprofiler-sdk/source/docs/how-to/rocprofv3-io-options.rst) - 输出格式和路径配置选项

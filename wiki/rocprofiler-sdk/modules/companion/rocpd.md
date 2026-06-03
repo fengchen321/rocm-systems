@@ -104,6 +104,6 @@ ROCPD 模块 (`source/lib/rocprofiler-sdk-rocpd/`) 是 rocprofiler-sdk 的 SQLit
 
 ## 与官方文档的关系
 
-- [使用 rocpd 输出格式](source/docs/how-to/using-rocpd-output-format.rst) - ROCPD 输出格式的完整使用指南，包括生成、转换和查询
-- [rocprofv3 I/O 控制选项](source/docs/how-to/rocprofv3-io-options.rst) - 输出格式和路径配置选项
-- [使用 rocprofv3](source/docs/how-to/using-rocprofv3.rst) - rocprofv3 工具的使用指南
+- [使用 rocpd 输出格式](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-rocpd-output-format.rst) - ROCPD 输出格式的完整使用指南，包括生成、转换和查询
+- [rocprofv3 I/O 控制选项](../../../../projects/rocprofiler-sdk/source/docs/how-to/rocprofv3-io-options.rst) - 输出格式和路径配置选项
+- [使用 rocprofv3](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-rocprofv3.rst) - rocprofv3 工具的使用指南

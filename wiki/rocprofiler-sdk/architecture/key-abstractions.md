@@ -2,6 +2,8 @@
 
 本文档描述 ROCprofiler-SDK 中的核心抽象概念，包括每个抽象的定义、对应的头文件和实现文件、关键数据结构以及在整体架构中的角色。
 
+> 验证记录：2026-06-03 使用 codegraph 查询 `rocprofiler_create_context`、`rocprofiler_create_buffer`、`rocprofiler_query_available_agents`、`rocprofiler_configure_callback_tracing_service`、`rocprofiler_configure_buffer_tracing_service`、`rocprofiler_get_timestamp`，并核对对应公共头文件和实现文件。 <!-- verified: 2026-06-03 -->
+
 ---
 
 ## 1. Context（上下文）
@@ -199,9 +201,7 @@ Agent 是 SDK 与硬件设备交互的抽象层。SDK 在初始化时枚举系�
 
 | 函数 | 说明 |
 |------|------|
-| `rocprofiler_query_agents()` | 查询系统中所有 Agent 信息 |
-| `rocprofiler_agent_get_timestamp()` | 获取 Agent 时间戳 |
-| `rocprofiler_agent_get_timestamp_frequency()` | 获取时间戳频率 |
+| `rocprofiler_query_available_agents()` | 查询系统中所有 Agent 信息 |
 
 ---
 
@@ -382,7 +382,7 @@ Registration 是工具注册机制，允许工具通过 `rocprofiler_configure` 
 |------|----------|
 | 公共头文件 | `source/include/rocprofiler-sdk/registration.h` |
 | 内部实现头文件 | `source/lib/rocprofiler-sdk/registration.hpp` |
-| 核心实现 | `source/lib/rocprofiler-sdk/registration/registration.cpp` |
+| 核心实现 | `source/lib/rocprofiler-sdk/registration.cpp` |
 
 ### 关键数据结构
 
@@ -535,7 +535,7 @@ Counter Config 是硬件性能计数器的配置集合，定义了要在特定 A
 | 公共头文件 | `source/include/rocprofiler-sdk/counters.h` |
 | 前向声明 | `source/include/rocprofiler-sdk/fwd.h` (第 699 行) |
 | 计数器核心 | `source/lib/rocprofiler-sdk/counters/core.hpp` |
-| 计数器实现 | `source/lib/rocprofiler-sdk/counters/counters.cpp` |
+| 计数器实现 | `source/lib/rocprofiler-sdk/counters.cpp` |
 | 计数器配置实现 | `source/lib/rocprofiler-sdk/counter_config.cpp` |
 | 设备计数 | `source/lib/rocprofiler-sdk/counters/device_counting.hpp` |
 

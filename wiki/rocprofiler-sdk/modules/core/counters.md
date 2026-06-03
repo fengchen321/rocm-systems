@@ -208,9 +208,9 @@
 
 ## 与官方文档的关系
 
-- API 参考: `source/docs/api-reference/rocprofiler-sdk_api_reference.rst`
-- 计数器收集服务: `source/docs/api-reference/counter_collection_services.rst`
+- API 参考: [rocprofiler-sdk API reference](../../../../projects/rocprofiler-sdk/source/docs/api-reference/rocprofiler-sdk_api_reference.rst)
+- 计数器收集服务: [counter collection services](../../../../projects/rocprofiler-sdk/source/docs/api-reference/counter_collection_services.rst)
 - 头文件 Doxygen 注释:
-  - `source/include/rocprofiler-sdk/counters.h`
-  - `source/include/rocprofiler-sdk/dispatch_counting_service.h`
-  - `source/include/rocprofiler-sdk/device_counting_service.h`
+  - [counters.h](../../../../projects/rocprofiler-sdk/source/include/rocprofiler-sdk/counters.h)
+  - [dispatch_counting_service.h](../../../../projects/rocprofiler-sdk/source/include/rocprofiler-sdk/dispatch_counting_service.h)
+  - [device_counting_service.h](../../../../projects/rocprofiler-sdk/source/include/rocprofiler-sdk/device_counting_service.h)

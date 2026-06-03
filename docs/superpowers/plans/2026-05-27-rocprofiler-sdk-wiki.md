@@ -1,6 +1,6 @@
 # Rocprofiler-SDK 源码阅读 Wiki 实施计划
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** 创建 `wiki/rocprofiler-sdk/` 目录结构和所有文档，形成完整的源码阅读笔记体系。
 
@@ -53,7 +53,7 @@
 **Files:**
 - Create: `wiki/rocprofiler-sdk/` (目录)
 
-- [ ] **Step 1: 创建所有子目录**
+- [x] **Step 1: 创建所有子目录**
 
 ```bash
 mkdir -p wiki/rocprofiler-sdk/architecture
@@ -64,7 +64,7 @@ mkdir -p wiki/rocprofiler-sdk/modules/tools
 mkdir -p wiki/rocprofiler-sdk/modules/bindings
 ```
 
-- [ ] **Step 2: 验证目录结构**
+- [x] **Step 2: 验证目录结构**
 
 ```bash
 find wiki/rocprofiler-sdk -type d | sort
@@ -89,11 +89,11 @@ wiki/rocprofiler-sdk/modules/tools
 **Files:**
 - Create: `wiki/rocprofiler-sdk/README.md`
 
-- [ ] **Step 1: 阅读项目 README 获取基本信息**
+- [x] **Step 1: 阅读项目 README 获取基本信息**
 
 读取 `projects/rocprofiler-sdk/README.md`，提取项目简介、版本、核心功能。
 
-- [ ] **Step 2: 编写 README.md**
+- [x] **Step 2: 编写 README.md**
 
 内容包含：
 
@@ -113,7 +113,7 @@ wiki/rocprofiler-sdk/modules/tools
 **Files:**
 - Create: `wiki/rocprofiler-sdk/glossary.md`
 
-- [ ] **Step 1: 编写术语表**
+- [x] **Step 1: 编写术语表**
 
 从设计文档的术语表章节提取所有术语，按字母排序。格式：
 
@@ -132,7 +132,7 @@ wiki/rocprofiler-sdk/modules/tools
 **Files:**
 - Create: `wiki/rocprofiler-sdk/architecture/overview.md`
 
-- [ ] **Step 1: 用 codegraph 分析项目整体结构**
+- [x] **Step 1: 用 codegraph 分析项目整体结构**
 
 ```bash
 codegraph files
@@ -140,11 +140,11 @@ codegraph files
 
 获取源码目录的整体布局。
 
-- [ ] **Step 2: 阅读项目 README 和 docs/conceptual/ 获取架构信息**
+- [x] **Step 2: 阅读项目 README 和 docs/conceptual/ 获取架构信息**
 
 读取 `projects/rocprofiler-sdk/source/docs/conceptual/comparing-with-legacy-tools.rst` 了解架构演进。
 
-- [ ] **Step 3: 编写 overview.md**
+- [x] **Step 3: 编写 overview.md**
 
 内容：
 - 整体架构分层图（文字版）：Public API → Core SDK → Runtime Interceptors → GPU Driver
@@ -158,7 +158,7 @@ codegraph files
 **Files:**
 - Create: `wiki/rocprofiler-sdk/architecture/key-abstractions.md`
 
-- [ ] **Step 1: 用 codegraph 查找核心抽象的定义**
+- [x] **Step 1: 用 codegraph 查找核心抽象的定义**
 
 ```bash
 codegraph query agent
@@ -169,11 +169,11 @@ codegraph query callback
 
 确认这些核心概念对应的源文件和数据结构。
 
-- [ ] **Step 2: 阅读公共 API 头文件**
+- [x] **Step 2: 阅读公共 API 头文件**
 
 读取 `projects/rocprofiler-sdk/source/include/rocprofiler-sdk/` 下的核心头文件（agent.h, context.h, buffer.h 等）。
 
-- [ ] **Step 3: 编写 key-abstractions.md**
+- [x] **Step 3: 编写 key-abstractions.md**
 
 对每个核心抽象：
 - 一句话定义
@@ -188,14 +188,14 @@ codegraph query callback
 **Files:**
 - Create: `wiki/rocprofiler-sdk/architecture/data-flow.md`
 
-- [ ] **Step 1: 用 codegraph 追踪核心数据流路径**
+- [x] **Step 1: 用 codegraph 追踪核心数据流路径**
 
 ```bash
 codegraph callees source/lib/rocprofiler-sdk/buffer.cpp:rocprofiler_configure_buffer_service
 codegraph callees source/lib/rocprofiler-sdk/callback_tracing.cpp:rocprofiler_configure_callback_service
 ```
 
-- [ ] **Step 2: 编写 data-flow.md**
+- [x] **Step 2: 编写 data-flow.md**
 
 内容：
 - 用户 API 调用 → SDK 内部处理 → 数据输出的完整路径
@@ -209,15 +209,15 @@ codegraph callees source/lib/rocprofiler-sdk/callback_tracing.cpp:rocprofiler_co
 **Files:**
 - Create: `wiki/rocprofiler-sdk/architecture/dependencies.md`
 
-- [ ] **Step 1: 分析 CMakeLists.txt 获取模块依赖**
+- [x] **Step 1: 分析 CMakeLists.txt 获取模块依赖**
 
 读取 `projects/rocprofiler-sdk/source/lib/rocprofiler-sdk/CMakeLists.txt` 和根目录的 `CMakeLists.txt`。
 
-- [ ] **Step 2: 列出外部依赖**
+- [x] **Step 2: 列出外部依赖**
 
 读取 `projects/rocprofiler-sdk/external/` 目录结构。
 
-- [ ] **Step 3: 编写 dependencies.md**
+- [x] **Step 3: 编写 dependencies.md**
 
 内容：
 - 内部模块间依赖关系
@@ -231,7 +231,7 @@ codegraph callees source/lib/rocprofiler-sdk/callback_tracing.cpp:rocprofiler_co
 **Files:**
 - Create: `wiki/rocprofiler-sdk/modules/core/agent.md`
 
-- [ ] **Step 1: 用 codegraph 分析 agent 模块**
+- [x] **Step 1: 用 codegraph 分析 agent 模块**
 
 ```bash
 # 查找 agent 相关符号
@@ -241,11 +241,11 @@ codegraph callers agent.cpp:<function_name>
 codegraph callees agent.cpp:<function_name>
 ```
 
-- [ ] **Step 2: 阅读源文件**
+- [x] **Step 2: 阅读源文件**
 
 读取 `projects/rocprofiler-sdk/source/lib/rocprofiler-sdk/agent.cpp` 和对应的头文件。
 
-- [ ] **Step 3: 按模板编写 agent.md**
+- [x] **Step 3: 按模板编写 agent.md**
 
 填充概述、关键文件、核心数据结构、关键函数、调用关系、数据流、已知限制、官方文档链接。
 
@@ -256,7 +256,7 @@ codegraph callees agent.cpp:<function_name>
 **Files:**
 - Create: `wiki/rocprofiler-sdk/modules/core/registration.md`
 
-- [ ] **Step 1: 用 codegraph 分析 registration 模块**
+- [x] **Step 1: 用 codegraph 分析 registration 模块**
 
 ```bash
 # 查找 registration 相关符号
@@ -266,11 +266,11 @@ codegraph callers registration.cpp:<function_name>
 codegraph callees registration.cpp:<function_name>
 ```
 
-- [ ] **Step 2: 阅读源文件**
+- [x] **Step 2: 阅读源文件**
 
 读取 `projects/rocprofiler-sdk/source/lib/rocprofiler-sdk/registration.cpp`（约54K，最大的文件）。
 
-- [ ] **Step 3: 按模板编写 registration.md**
+- [x] **Step 3: 按模板编写 registration.md**
 
 ---
 
@@ -279,7 +279,7 @@ codegraph callees registration.cpp:<function_name>
 **Files:**
 - Create: `wiki/rocprofiler-sdk/modules/core/context.md`
 
-- [ ] **Step 1: 用 codegraph 分析 context 模块**
+- [x] **Step 1: 用 codegraph 分析 context 模块**
 
 ```bash
 # 查找 context 相关符号
@@ -289,11 +289,11 @@ codegraph callers context.cpp:<function_name>
 codegraph callees context.cpp:<function_name>
 ```
 
-- [ ] **Step 2: 阅读源文件**
+- [x] **Step 2: 阅读源文件**
 
 读取 `projects/rocprofiler-sdk/source/lib/rocprofiler-sdk/context/` 目录下的文件。
 
-- [ ] **Step 3: 按模板编写 context.md**
+- [x] **Step 3: 按模板编写 context.md**
 
 ---
 
@@ -302,7 +302,7 @@ codegraph callees context.cpp:<function_name>
 **Files:**
 - Create: `wiki/rocprofiler-sdk/modules/core/buffer.md`
 
-- [ ] **Step 1: 用 codegraph 分析 buffer 模块**
+- [x] **Step 1: 用 codegraph 分析 buffer 模块**
 
 ```bash
 # 查找 buffer 相关符号
@@ -312,11 +312,11 @@ codegraph callers buffer.cpp:<function_name>
 codegraph callees buffer.cpp:<function_name>
 ```
 
-- [ ] **Step 2: 阅读源文件**
+- [x] **Step 2: 阅读源文件**
 
 读取 `projects/rocprofiler-sdk/source/lib/rocprofiler-sdk/buffer.cpp` 和 `buffer_tracing.cpp`。
 
-- [ ] **Step 3: 按模板编写 buffer.md**
+- [x] **Step 3: 按模板编写 buffer.md**
 
 ---
 
@@ -325,7 +325,7 @@ codegraph callees buffer.cpp:<function_name>
 **Files:**
 - Create: `wiki/rocprofiler-sdk/modules/core/callback-tracing.md`
 
-- [ ] **Step 1: 用 codegraph 分析 callback_tracing 模块**
+- [x] **Step 1: 用 codegraph 分析 callback_tracing 模块**
 
 ```bash
 # 查找 callback_tracing 相关符号
@@ -335,11 +335,11 @@ codegraph callers callback_tracing.cpp:<function_name>
 codegraph callees callback_tracing.cpp:<function_name>
 ```
 
-- [ ] **Step 2: 阅读源文件**
+- [x] **Step 2: 阅读源文件**
 
 读取 `projects/rocprofiler-sdk/source/lib/rocprofiler-sdk/callback_tracing.cpp`。
 
-- [ ] **Step 3: 按模板编写 callback-tracing.md**
+- [x] **Step 3: 按模板编写 callback-tracing.md**
 
 ---
 
@@ -348,7 +348,7 @@ codegraph callees callback_tracing.cpp:<function_name>
 **Files:**
 - Create: `wiki/rocprofiler-sdk/modules/core/counters.md`
 
-- [ ] **Step 1: 用 codegraph 分析 counters 模块**
+- [x] **Step 1: 用 codegraph 分析 counters 模块**
 
 ```bash
 # 查找 counters 相关符号
@@ -358,11 +358,11 @@ codegraph callers counters/<file>.cpp:<function_name>
 codegraph callees counters/<file>.cpp:<function_name>
 ```
 
-- [ ] **Step 2: 阅读源文件**
+- [x] **Step 2: 阅读源文件**
 
 读取 `projects/rocprofiler-sdk/source/lib/rocprofiler-sdk/counters/` 目录。
 
-- [ ] **Step 3: 按模板编写 counters.md**
+- [x] **Step 3: 按模板编写 counters.md**
 
 ---
 
@@ -371,7 +371,7 @@ codegraph callees counters/<file>.cpp:<function_name>
 **Files:**
 - Create: `wiki/rocprofiler-sdk/modules/core/pc-sampling.md`
 
-- [ ] **Step 1: 用 codegraph 分析 pc_sampling 模块**
+- [x] **Step 1: 用 codegraph 分析 pc_sampling 模块**
 
 ```bash
 # 查找 pc_sampling 相关符号
@@ -381,11 +381,11 @@ codegraph callers pc_sampling/<file>.cpp:<function_name>
 codegraph callees pc_sampling/<file>.cpp:<function_name>
 ```
 
-- [ ] **Step 2: 阅读源文件**
+- [x] **Step 2: 阅读源文件**
 
 读取 `projects/rocprofiler-sdk/source/lib/rocprofiler-sdk/pc_sampling/` 目录。
 
-- [ ] **Step 3: 按模板编写 pc-sampling.md**
+- [x] **Step 3: 按模板编写 pc-sampling.md**
 
 ---
 
@@ -394,7 +394,7 @@ codegraph callees pc_sampling/<file>.cpp:<function_name>
 **Files:**
 - Create: `wiki/rocprofiler-sdk/modules/interceptors/hip.md`
 
-- [ ] **Step 1: 用 codegraph 分析 HIP 拦截模块**
+- [x] **Step 1: 用 codegraph 分析 HIP 拦截模块**
 
 ```bash
 # 查找 HIP 拦截相关符号
@@ -404,11 +404,11 @@ codegraph callers hip/<file>.cpp:<function_name>
 codegraph callees hip/<file>.cpp:<function_name>
 ```
 
-- [ ] **Step 2: 阅读源文件**
+- [x] **Step 2: 阅读源文件**
 
 读取 `projects/rocprofiler-sdk/source/lib/rocprofiler-sdk/hip/` 目录。
 
-- [ ] **Step 3: 按模板编写 hip.md**
+- [x] **Step 3: 按模板编写 hip.md**
 
 ---
 
@@ -417,7 +417,7 @@ codegraph callees hip/<file>.cpp:<function_name>
 **Files:**
 - Create: `wiki/rocprofiler-sdk/modules/interceptors/hsa.md`
 
-- [ ] **Step 1: 用 codegraph 分析 HSA 拦截模块**
+- [x] **Step 1: 用 codegraph 分析 HSA 拦截模块**
 
 ```bash
 # 查找 HSA 拦截相关符号
@@ -427,11 +427,11 @@ codegraph callers hsa/<file>.cpp:<function_name>
 codegraph callees hsa/<file>.cpp:<function_name>
 ```
 
-- [ ] **Step 2: 阅读源文件**
+- [x] **Step 2: 阅读源文件**
 
 读取 `projects/rocprofiler-sdk/source/lib/rocprofiler-sdk/hsa/` 目录。
 
-- [ ] **Step 3: 按模板编写 hsa.md**
+- [x] **Step 3: 按模板编写 hsa.md**
 
 ---
 
@@ -440,7 +440,7 @@ codegraph callees hsa/<file>.cpp:<function_name>
 **Files:**
 - Create: `wiki/rocprofiler-sdk/modules/interceptors/kfd.md`
 
-- [ ] **Step 1: 用 codegraph 分析 KFD 拦截模块**
+- [x] **Step 1: 用 codegraph 分析 KFD 拦截模块**
 
 ```bash
 # 查找 KFD 拦截相关符号
@@ -450,11 +450,11 @@ codegraph callers kfd/<file>.cpp:<function_name>
 codegraph callees kfd/<file>.cpp:<function_name>
 ```
 
-- [ ] **Step 2: 阅读源文件**
+- [x] **Step 2: 阅读源文件**
 
 读取 `projects/rocprofiler-sdk/source/lib/rocprofiler-sdk/kfd/` 目录。
 
-- [ ] **Step 3: 按模板编写 kfd.md**
+- [x] **Step 3: 按模板编写 kfd.md**
 
 ---
 
@@ -463,7 +463,7 @@ codegraph callees kfd/<file>.cpp:<function_name>
 **Files:**
 - Create: `wiki/rocprofiler-sdk/modules/companion/output.md`
 
-- [ ] **Step 1: 用 codegraph 分析 output 模块**
+- [x] **Step 1: 用 codegraph 分析 output 模块**
 
 ```bash
 # 查找 output 相关符号
@@ -473,11 +473,11 @@ codegraph callers output/<file>.cpp:<function_name>
 codegraph callees output/<file>.cpp:<function_name>
 ```
 
-- [ ] **Step 2: 阅读源文件**
+- [x] **Step 2: 阅读源文件**
 
 读取 `projects/rocprofiler-sdk/source/lib/output/` 目录。
 
-- [ ] **Step 3: 按模板编写 output.md**
+- [x] **Step 3: 按模板编写 output.md**
 
 ---
 
@@ -486,7 +486,7 @@ codegraph callees output/<file>.cpp:<function_name>
 **Files:**
 - Create: `wiki/rocprofiler-sdk/modules/companion/rocpd.md`
 
-- [ ] **Step 1: 用 codegraph 分析 rocpd 模块**
+- [x] **Step 1: 用 codegraph 分析 rocpd 模块**
 
 ```bash
 # 查找 rocpd 相关符号
@@ -496,11 +496,11 @@ codegraph callers rocprofiler-sdk-rocpd/<file>.cpp:<function_name>
 codegraph callees rocprofiler-sdk-rocpd/<file>.cpp:<function_name>
 ```
 
-- [ ] **Step 2: 阅读源文件**
+- [x] **Step 2: 阅读源文件**
 
 读取 `projects/rocprofiler-sdk/source/lib/rocprofiler-sdk-rocpd/` 目录。
 
-- [ ] **Step 3: 按模板编写 rocpd.md**
+- [x] **Step 3: 按模板编写 rocpd.md**
 
 ---
 
@@ -509,7 +509,7 @@ codegraph callees rocprofiler-sdk-rocpd/<file>.cpp:<function_name>
 **Files:**
 - Create: `wiki/rocprofiler-sdk/modules/companion/aqlprofile.md`
 
-- [ ] **Step 1: 用 codegraph 分析 aqlprofile 模块**
+- [x] **Step 1: 用 codegraph 分析 aqlprofile 模块**
 
 ```bash
 # 查找 aqlprofile 相关符号
@@ -519,11 +519,11 @@ codegraph callers aqlprofile/<file>.cpp:<function_name>
 codegraph callees aqlprofile/<file>.cpp:<function_name>
 ```
 
-- [ ] **Step 2: 阅读源文件**
+- [x] **Step 2: 阅读源文件**
 
 读取 `projects/rocprofiler-sdk/source/lib/aqlprofile/` 目录。
 
-- [ ] **Step 3: 按模板编写 aqlprofile.md**
+- [x] **Step 3: 按模板编写 aqlprofile.md**
 
 ---
 
@@ -532,7 +532,7 @@ codegraph callees aqlprofile/<file>.cpp:<function_name>
 **Files:**
 - Create: `wiki/rocprofiler-sdk/modules/companion/roctx.md`
 
-- [ ] **Step 1: 用 codegraph 分析 roctx 模块**
+- [x] **Step 1: 用 codegraph 分析 roctx 模块**
 
 ```bash
 # 查找 roctx 相关符号
@@ -542,11 +542,11 @@ codegraph callers rocprofiler-sdk-roctx/<file>.cpp:<function_name>
 codegraph callees rocprofiler-sdk-roctx/<file>.cpp:<function_name>
 ```
 
-- [ ] **Step 2: 阅读源文件**
+- [x] **Step 2: 阅读源文件**
 
 读取 `projects/rocprofiler-sdk/source/lib/rocprofiler-sdk-roctx/` 目录。
 
-- [ ] **Step 3: 按模板编写 roctx.md**
+- [x] **Step 3: 按模板编写 roctx.md**
 
 ---
 
@@ -555,7 +555,7 @@ codegraph callees rocprofiler-sdk-roctx/<file>.cpp:<function_name>
 **Files:**
 - Create: `wiki/rocprofiler-sdk/modules/tools/rocprofv3.md`
 
-- [ ] **Step 1: 用 codegraph 分析 rocprofv3 相关代码**
+- [x] **Step 1: 用 codegraph 分析 rocprofv3 相关代码**
 
 ```bash
 # 查找 rocprofv3 相关符号
@@ -565,15 +565,15 @@ codegraph callers rocprofv3.py:<function_name>
 codegraph callees rocprofv3.py:<function_name>
 ```
 
-- [ ] **Step 2: 阅读 rocprofv3 源码**
+- [x] **Step 2: 阅读 rocprofv3 源码**
 
-读取 `projects/rocprofiler-sdk/source/libexec/rocprofv3.py`（约84K）。
+读取 `projects/rocprofiler-sdk/source/bin/rocprofv3.py`（约84K）。
 
-- [ ] **Step 3: 阅读官方 how-to 文档**
+- [x] **Step 3: 阅读官方 how-to 文档**
 
 读取 `projects/rocprofiler-sdk/source/docs/how-to/` 下关于 rocprofv3 的文档。
 
-- [ ] **Step 4: 按模板编写 rocprofv3.md**
+- [x] **Step 4: 按模板编写 rocprofv3.md**
 
 ---
 
@@ -582,7 +582,7 @@ codegraph callees rocprofv3.py:<function_name>
 **Files:**
 - Create: `wiki/rocprofiler-sdk/modules/tools/rocpd-cli.md`
 
-- [ ] **Step 1: 用 codegraph 分析 rocpd CLI 相关代码**
+- [x] **Step 1: 用 codegraph 分析 rocpd CLI 相关代码**
 
 ```bash
 # 查找 rocpd CLI 相关符号
@@ -592,11 +592,11 @@ codegraph callers rocpd.py:<function_name>
 codegraph callees rocpd.py:<function_name>
 ```
 
-- [ ] **Step 2: 阅读 rocpd CLI 源码**
+- [x] **Step 2: 阅读 rocpd CLI 源码**
 
-读取 `projects/rocprofiler-sdk/source/libexec/rocpd.py`。
+读取 `projects/rocprofiler-sdk/source/bin/rocpd.py`。
 
-- [ ] **Step 3: 按模板编写 rocpd-cli.md**
+- [x] **Step 3: 按模板编写 rocpd-cli.md**
 
 ---
 
@@ -605,7 +605,7 @@ codegraph callees rocpd.py:<function_name>
 **Files:**
 - Create: `wiki/rocprofiler-sdk/modules/bindings/python.md`
 
-- [ ] **Step 1: 用 codegraph 分析 Python 绑定**
+- [x] **Step 1: 用 codegraph 分析 Python 绑定**
 
 ```bash
 # 查找 Python 绑定相关符号
@@ -615,11 +615,11 @@ codegraph callers python/<file>.py:<function_name>
 codegraph callees python/<file>.py:<function_name>
 ```
 
-- [ ] **Step 2: 阅读源文件**
+- [x] **Step 2: 阅读源文件**
 
 读取 `projects/rocprofiler-sdk/source/lib/python/` 目录下的三个子目录（rocpd, rocprofv3, roctx）。
 
-- [ ] **Step 3: 按模板编写 python.md**
+- [x] **Step 3: 按模板编写 python.md**
 
 ---
 
@@ -628,14 +628,14 @@ codegraph callees python/<file>.py:<function_name>
 **Files:**
 - 所有已创建的 wiki 文件
 
-- [ ] **Step 1: 验证所有内部链接**
+- [x] **Step 1: 验证所有内部链接**
 
 检查 README.md 中的所有链接是否指向存在的文件。
 
-- [ ] **Step 2: 验证 codegraph 标注**
+- [x] **Step 2: 验证 codegraph 标注**
 
 检查各模块笔记中的 `<!-- verified: YYYY-MM-DD -->` 标注是否存在。
 
-- [ ] **Step 3: 检查模板一致性**
+- [x] **Step 3: 检查模板一致性**
 
 确认所有模块笔记都遵循统一模板格式。

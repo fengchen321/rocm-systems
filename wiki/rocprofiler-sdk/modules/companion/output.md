@@ -78,7 +78,7 @@
 ## 调用关系
 
 - **上游**：
-  - `rocprofv3` 工具（`source/bin/rocprofv3/`）在 profiling 会话结束时调用各 `generate_*` / `write_*` 函数输出数据
+  - `rocprofv3` 工具（`source/bin/rocprofv3.py` 和 `source/lib/rocprofiler-sdk-tool/tool.cpp`）在 profiling 会话结束时调用各 `generate_*` / `write_*` 函数输出数据
   - `buffered_output` 被回调追踪和缓冲区追踪模块填充数据
 
 - **下游**：
@@ -112,7 +112,7 @@
 
 ## 与官方文档的关系
 
-- [使用 rocpd 输出格式](source/docs/how-to/using-rocpd-output-format.rst) - ROCPD 输出格式的使用指南
-- [rocprofv3 I/O 控制选项](source/docs/how-to/rocprofv3-io-options.rst) - 输出路径和格式配置选项
-- [使用 rocprofv3](source/docs/how-to/using-rocprofv3.rst) - rocprofv3 工具的完整使用指南
-- [高级 rocprofv3 选项](source/docs/how-to/advanced-rocprofv3-options.rst) - 高级输出配置选项
+- [使用 rocpd 输出格式](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-rocpd-output-format.rst) - ROCPD 输出格式的使用指南
+- [rocprofv3 I/O 控制选项](../../../../projects/rocprofiler-sdk/source/docs/how-to/rocprofv3-io-options.rst) - 输出路径和格式配置选项
+- [使用 rocprofv3](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-rocprofv3.rst) - rocprofv3 工具的完整使用指南
+- [高级 rocprofv3 选项](../../../../projects/rocprofiler-sdk/source/docs/how-to/advanced-rocprofv3-options.rst) - 高级输出配置选项

@@ -2,6 +2,8 @@
 
 本文档描述 ROCprofiler-SDK 项目的内部模块间依赖关系和外部依赖列表。
 
+> 验证记录：2026-06-03 核对 `projects/rocprofiler-sdk/source/lib/rocprofiler-sdk/CMakeLists.txt`、`projects/rocprofiler-sdk/source/lib/rocprofiler-sdk/` 子目录，以及 `projects/rocprofiler-sdk/external/` 外部依赖目录。 <!-- verified: 2026-06-03 -->
+
 ---
 
 ## 内部模块间依赖关系

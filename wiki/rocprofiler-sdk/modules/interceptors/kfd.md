@@ -121,5 +121,6 @@ KFD（Kernel Fusion Driver）内核驱动拦截器是 rocprofiler-sdk 中负责�
 
 ## 与官方文档的关系
 
-- API 参考 - 缓冲追踪服务：`source/docs/api-reference/rocprofiler-sdk_api/modules/buffer_tracing.rst`
-- API 参考 - 上下文管理：`source/docs/api-reference/rocprofiler-sdk_api/modules/context_management.rst`
+- API 参考 - 缓冲追踪服务：[buffer tracing](../../../../projects/rocprofiler-sdk/source/docs/api-reference/rocprofiler-sdk_api/modules/buffer_tracing.rst)
+- API 参考 - 上下文管理：[context management](../../../../projects/rocprofiler-sdk/source/docs/api-reference/rocprofiler-sdk_api/modules/context_management.rst)
+- 上述 API 参考页是 Doxygen group 生成入口；直接阅读主要头文件更有信息量：[buffer_tracing.h](../../../../projects/rocprofiler-sdk/source/include/rocprofiler-sdk/buffer_tracing.h)、[context.h](../../../../projects/rocprofiler-sdk/source/include/rocprofiler-sdk/context.h)

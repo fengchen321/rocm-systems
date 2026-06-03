@@ -141,7 +141,7 @@ AQLProfile 模块 (`source/lib/aqlprofile/`) 是 rocprofiler-sdk 的 GPU 性能�
 
 ## 与官方文档的关系
 
-- [使用 PC 采样](source/docs/how-to/using-pc-sampling.rst) - PC 采样功能使用指南
-- [CDNA3/CDNA4 PC 采样](source/docs/how-to/cdna3-cdna4-pc-sampling.rst) - CDNA 架构特定的 PC 采样配置
-- [使用线程追踪](source/docs/how-to/using-thread-trace.rst) - 线程追踪功能使用指南
-- [使用 rocprofv3](source/docs/how-to/using-rocprofv3.rst) - rocprofv3 工具的完整使用指南
+- [使用 PC 采样](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-pc-sampling.rst) - PC 采样功能使用指南
+- [CDNA3/CDNA4 PC 采样](../../../../projects/rocprofiler-sdk/source/docs/how-to/cdna3-cdna4-pc-sampling.rst) - CDNA 架构特定的 PC 采样配置
+- [使用线程追踪](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-thread-trace.rst) - 线程追踪功能使用指南
+- [使用 rocprofv3](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-rocprofv3.rst) - rocprofv3 工具的完整使用指南

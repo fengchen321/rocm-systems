@@ -202,8 +202,8 @@ PC 采样（PC Sampling）模块负责收集 AMD GPU 的程序计数器（Progra
 
 ## 与官方文档的关系
 
-- API 参考: `source/docs/api-reference/rocprofiler-sdk_api_reference.rst`
-- PC 采样: `source/docs/api-reference/pc_sampling.rst`
-- CDNA3/CDNA4 PC 采样: `source/docs/how-to/cdna3-cdna4-pc-sampling.rst`
-- 使用 PC 采样: `source/docs/how-to/using-pc-sampling.rst`
-- 头文件 Doxygen 注释: `source/include/rocprofiler-sdk/pc_sampling.h` 中包含详细的 API 文档
+- API 参考: [rocprofiler-sdk API reference](../../../../projects/rocprofiler-sdk/source/docs/api-reference/rocprofiler-sdk_api_reference.rst)
+- PC 采样: [PC sampling](../../../../projects/rocprofiler-sdk/source/docs/api-reference/pc_sampling.rst)
+- CDNA3/CDNA4 PC 采样: [CDNA3/CDNA4 PC sampling](../../../../projects/rocprofiler-sdk/source/docs/how-to/cdna3-cdna4-pc-sampling.rst)
+- 使用 PC 采样: [using PC sampling](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-pc-sampling.rst)
+- 头文件 Doxygen 注释: [pc_sampling.h](../../../../projects/rocprofiler-sdk/source/include/rocprofiler-sdk/pc_sampling.h) 中包含详细的 API 文档

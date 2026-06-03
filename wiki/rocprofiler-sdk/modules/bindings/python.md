@@ -308,8 +308,8 @@ rocprofv3 工具收集标记数据
 
 | 文档 | 路径 | 说明 |
 |------|------|------|
-| 使用 rocpd 输出格式 | source/docs/how-to/using-rocpd-output-format.rst | rocpd 数据库使用指南 |
-| 使用 ROCTx | source/docs/how-to/using-rocprofiler-sdk-roctx.rst | ROCTx 标记 API 使用指南 |
-| rocprofv3-avail | source/docs/how-to/using-rocprofv3-avail.rst | 可用计数器查询（rocprofv3 子包） |
-| rocpd README | source/lib/python/rocpd/README.md | rocpd Python 模块详细文档 |
-| API 参考 - 工具库 | source/docs/api-reference/tool_library.rst | 工具库 API 参考 |
+| 使用 rocpd 输出格式 | [using-rocpd-output-format.rst](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-rocpd-output-format.rst) | rocpd 数据库使用指南 |
+| 使用 ROCTx | [using-rocprofiler-sdk-roctx.rst](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-rocprofiler-sdk-roctx.rst) | ROCTx 标记 API 使用指南 |
+| rocprofv3-avail | [using-rocprofv3-avail.rst](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-rocprofv3-avail.rst) | 可用计数器查询（rocprofv3 子包） |
+| rocpd README | [README.md](../../../../projects/rocprofiler-sdk/source/lib/python/rocpd/README.md) | rocpd Python 模块详细文档 |
+| API 参考 - 工具库 | [tool_library.rst](../../../../projects/rocprofiler-sdk/source/docs/api-reference/tool_library.rst) | 工具库 API 参考 |

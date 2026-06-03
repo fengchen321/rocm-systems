@@ -42,6 +42,7 @@ ROCprofiler-SDK 是 AMD 新一代 GPU profiling/tracing SDK，提供硬件计数
 掌握命令行工具 rocprofv3 的使用方式，以及 Python 绑定等扩展能力。
 
 - [rocprofv3](modules/tools/rocprofv3.md)
+- [rocprofv3 指令触发流程](modules/tools/rocprofv3-flows.md)
 - [Python 绑定](modules/bindings/python.md)
 
 ## 术语表

@@ -163,6 +163,6 @@
 
 ## 与官方文档的关系
 
-- API 参考: `source/docs/api-reference/rocprofiler-sdk_api_reference.rst`
-- 回调服务: `source/docs/api-reference/callback_services.rst`
-- 头文件 Doxygen 注释: `source/include/rocprofiler-sdk/callback_tracing.h` 中包含详细的 API 文档
+- API 参考: [rocprofiler-sdk API reference](../../../../projects/rocprofiler-sdk/source/docs/api-reference/rocprofiler-sdk_api_reference.rst)
+- 回调服务: [callback services](../../../../projects/rocprofiler-sdk/source/docs/api-reference/callback_services.rst)
+- 头文件 Doxygen 注释: [callback_tracing.h](../../../../projects/rocprofiler-sdk/source/include/rocprofiler-sdk/callback_tracing.h) 中包含详细的 API 文档

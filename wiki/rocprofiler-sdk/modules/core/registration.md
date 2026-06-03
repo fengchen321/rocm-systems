@@ -246,8 +246,8 @@
 
 ## 与官方文档的关系
 
-- API 参考: `source/docs/api-reference/rocprofiler-sdk_api_reference.rst`
-- 工具库指南: `source/docs/api-reference/tool_library.rst`
-- 进程附加: `source/docs/api-reference/process_attachment.rst`
-- 拦截表: `source/docs/api-reference/intercept_table.rst`
-- 头文件 Doxygen 注释: `source/include/rocprofiler-sdk/registration.h` 中包含详细的 API 文档
+- API 参考: [rocprofiler-sdk API reference](../../../../projects/rocprofiler-sdk/source/docs/api-reference/rocprofiler-sdk_api_reference.rst)
+- 工具库指南: [tool library](../../../../projects/rocprofiler-sdk/source/docs/api-reference/tool_library.rst)
+- 进程附加: [process attachment](../../../../projects/rocprofiler-sdk/source/docs/api-reference/process_attachment.rst)
+- 拦截表: [intercept table](../../../../projects/rocprofiler-sdk/source/docs/api-reference/intercept_table.rst)
+- 头文件 Doxygen 注释: [registration.h](../../../../projects/rocprofiler-sdk/source/include/rocprofiler-sdk/registration.h) 中包含详细的 API 文档

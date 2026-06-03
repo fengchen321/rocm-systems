@@ -218,6 +218,6 @@ rocpd CLI (__main__.py)
 
 | 文档 | 路径 | 说明 |
 |------|------|------|
-| 使用 rocpd 输出格式 | source/docs/how-to/using-rocpd-output-format.rst | rocpd 输出格式使用指南 |
-| rocprofv3 I/O 选项 | source/docs/how-to/rocprofv3-io-options.rst | 包含 rocpd 输出选项说明 |
-| rocpd README | source/lib/python/rocpd/README.md | rocpd Python 模块的详细使用文档 |
+| 使用 rocpd 输出格式 | [using-rocpd-output-format.rst](../../../../projects/rocprofiler-sdk/source/docs/how-to/using-rocpd-output-format.rst) | rocpd 输出格式使用指南 |
+| rocprofv3 I/O 选项 | [rocprofv3-io-options.rst](../../../../projects/rocprofiler-sdk/source/docs/how-to/rocprofv3-io-options.rst) | 包含 rocpd 输出选项说明 |
+| rocpd README | [README.md](../../../../projects/rocprofiler-sdk/source/lib/python/rocpd/README.md) | rocpd Python 模块的详细使用文档 |

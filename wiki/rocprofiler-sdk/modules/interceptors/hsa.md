@@ -109,7 +109,8 @@ HSA 运行时拦截器是 rocprofiler-sdk 中负责拦截和追踪 HSA（Heterog
 
 ## 与官方文档的关系
 
-- API 参考 - 拦截表服务：`source/docs/api-reference/rocprofiler-sdk_api/modules/intercept_table.rst`
-- API 参考 - 回调追踪服务：`source/docs/api-reference/rocprofiler-sdk_api/modules/callback_tracing.rst`
-- API 参考 - 缓冲追踪服务：`source/docs/api-reference/rocprofiler-sdk_api/modules/buffer_tracing.rst`
-- API 参考 - PC 采样服务：`source/docs/api-reference/rocprofiler-sdk_api/modules/pc_sampling_service.rst`
+- API 参考 - 拦截表服务：[intercept table](../../../../projects/rocprofiler-sdk/source/docs/api-reference/rocprofiler-sdk_api/modules/intercept_table.rst)
+- API 参考 - 回调追踪服务：[callback tracing](../../../../projects/rocprofiler-sdk/source/docs/api-reference/rocprofiler-sdk_api/modules/callback_tracing.rst)
+- API 参考 - 缓冲追踪服务：[buffer tracing](../../../../projects/rocprofiler-sdk/source/docs/api-reference/rocprofiler-sdk_api/modules/buffer_tracing.rst)
+- API 参考 - PC 采样服务：[PC sampling service](../../../../projects/rocprofiler-sdk/source/docs/api-reference/rocprofiler-sdk_api/modules/pc_sampling_service.rst)
+- 上述 API 参考页是 Doxygen group 生成入口；直接阅读主要头文件更有信息量：[intercept_table.h](../../../../projects/rocprofiler-sdk/source/include/rocprofiler-sdk/intercept_table.h)、[callback_tracing.h](../../../../projects/rocprofiler-sdk/source/include/rocprofiler-sdk/callback_tracing.h)、[buffer_tracing.h](../../../../projects/rocprofiler-sdk/source/include/rocprofiler-sdk/buffer_tracing.h)、[pc_sampling.h](../../../../projects/rocprofiler-sdk/source/include/rocprofiler-sdk/pc_sampling.h)

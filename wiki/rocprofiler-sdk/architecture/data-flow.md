@@ -2,6 +2,8 @@
 
 本文档描述 ROCprofiler-SDK 中数据从用户 API 调用到最终输出的完整路径，包括 Buffer Tracing 和 Callback Tracing 两条主要数据流路径。
 
+> 验证记录：2026-06-03 使用 codegraph 查询 `rocprofiler_create_context`、`rocprofiler_create_buffer`、`rocprofiler_configure_buffer_tracing_service`、`rocprofiler_configure_callback_tracing_service`、`rocprofiler_get_timestamp`，并核对 `buffer.cpp`、`buffer_tracing.cpp`、`callback_tracing.cpp`、`context.cpp`、`rocprofiler.cpp`。 <!-- verified: 2026-06-03 -->
+
 ---
 
 ## 整体数据流概览
@@ -23,7 +25,7 @@
 |                    rocprofiler-sdk 内部处理                          |
 |  +-------------------+  +-------------------+  +------------------+ |
 |  | 关联 ID 生成      |  | 时间戳采集        |  | Context 检查     | |
-|  | (correlation_id)  |  | (agent timestamp) |  | (active contexts)| |
+|  | (correlation_id)  |  | (timestamp_ns)    |  | (active contexts)| |
 |  +-------------------+  +-------------------+  +------------------+ |
 +=====================================================================+
          |                                    |
@@ -177,7 +179,7 @@
 |                           |                                      |
 |                           v                                      |
 |  4. 时间戳采集                                                    |
-|     调用 rocprofiler_agent_get_timestamp() 采集开始时间戳         |
+|     调用 common::timestamp_ns() 采集开始时间戳                    |
 |                           |                                      |
 |                           v                                      |
 |  5. Context 检查                                                  |
@@ -229,7 +231,7 @@
 | 记录构建 | `context/context.hpp` | `buffer_tracing_service` 结构 |
 | 缓冲区管理 | `buffer.hpp`, `buffer.cpp` | `buffer::instance::emplace()` |
 | 关联 ID | `context/correlation_id.cpp` | 关联 ID 生成和管理 |
-| 时间戳 | `agent.cpp` | `rocprofiler_agent_get_timestamp()` |
+| 时间戳 | `rocprofiler.cpp` / `common` | `rocprofiler_get_timestamp()` / `common::timestamp_ns()` |
 
 ### 数据记录结构
 

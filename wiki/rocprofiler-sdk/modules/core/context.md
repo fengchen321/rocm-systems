@@ -206,9 +206,10 @@
 
 ## 与官方文档的关系
 
-- API 参考: `source/docs/api-reference/rocprofiler-sdk_api_reference.rst`
-- 回调服务: `source/docs/api-reference/callback_services.rst`
-- 缓冲服务: `source/docs/api-reference/buffered_services.rst`
-- 计数器收集: `source/docs/api-reference/counter_collection_services.rst`
-- PC 采样: `source/docs/api-reference/pc_sampling.rst`
-- 线程追踪: `source/docs/api-reference/thread_trace.rst`
+- API 参考: [rocprofiler-sdk API reference](../../../../projects/rocprofiler-sdk/source/docs/api-reference/rocprofiler-sdk_api_reference.rst)
+- 回调服务: [callback services](../../../../projects/rocprofiler-sdk/source/docs/api-reference/callback_services.rst)
+- 缓冲服务: [buffered services](../../../../projects/rocprofiler-sdk/source/docs/api-reference/buffered_services.rst)
+- 计数器收集: [counter collection services](../../../../projects/rocprofiler-sdk/source/docs/api-reference/counter_collection_services.rst)
+- PC 采样: [PC sampling](../../../../projects/rocprofiler-sdk/source/docs/api-reference/pc_sampling.rst)
+- 线程追踪: [thread trace](../../../../projects/rocprofiler-sdk/source/docs/api-reference/thread_trace.rst)
+- 头文件 Doxygen 注释: [context.h](../../../../projects/rocprofiler-sdk/source/include/rocprofiler-sdk/context.h) 中包含 Context 生命周期 API 文档
